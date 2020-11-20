@@ -12,6 +12,7 @@ const buttons = document.querySelectorAll(".lp-button");
 /*
 * Animate the main title and main paragraphs
 */
+
 timeline.staggerFrom(".lp-text", 1.5, {
     y: "100%",
     opacity: 1,
