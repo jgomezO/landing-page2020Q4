@@ -235,7 +235,7 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
 
 .lp-main-wrapper .lp-big-title {
   text-align: center;
-  padding: 8rem 0;
+  padding: 5rem 0;
   font-weight: 700;
   font-size: 3rem;
   opacity: 0;
@@ -269,8 +269,8 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont {
   padding: 2rem;
   width: 100%;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
+  -webkit-perspective: 2000px;
+          perspective: 2000px;
   position: relative;
 }
 
@@ -312,6 +312,12 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   position: static;
 }
 
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.tablet {
+  max-width: 450px;
+  top: 35% !important;
+  left: 38% !important;
+}
+
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure:nth-child(2) {
   top: 40%;
   left: 35%;
@@ -324,8 +330,8 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images.right figure {
-  -webkit-transform: rotateX(29deg) rotateY(-25deg) skew(-24deg, 24deg) scale(0.9);
-          transform: rotateX(29deg) rotateY(-25deg) skew(-24deg, 24deg) scale(0.9);
+  -webkit-transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9);
+          transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9);
   -webkit-box-shadow: 23px 20px 39px 14px rgba(0, 0, 0, 0.15);
   box-shadow: 23px 20px 39px 14px rgba(0, 0, 0, 0.15);
 }
@@ -337,8 +343,8 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure {
   width: 100%;
   position: relative;
-  -webkit-transform: rotateX(29deg) rotateY(25deg) skew(24deg, -24deg) scale(0.9);
-          transform: rotateX(29deg) rotateY(25deg) skew(24deg, -24deg) scale(0.9);
+  -webkit-transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9);
+          transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9);
   border-radius: 10px;
   -webkit-box-shadow: -23px 20px 39px 14px rgba(0, 0, 0, 0.15);
   box-shadow: -23px 20px 39px 14px rgba(0, 0, 0, 0.15);
@@ -374,7 +380,7 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images figure.tablet {
   -webkit-transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8);
           transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8);
-  left: 60%;
+  left: 40%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images figure.ticketing {
@@ -416,10 +422,6 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   z-index: -1;
   top: -5%;
   left: 30%;
-}
-
-.lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .paragraphs-cont {
-  padding-left: 20px;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .paragraphs-cont .paragraph {
@@ -795,9 +797,6 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
     position: static;
     font-size: 10vw;
     line-height: 1;
-  }
-  .lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .paragraphs-cont {
-    padding-left: 0;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .lp-feature-title {
     font-size: 5vw;

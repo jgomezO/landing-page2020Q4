@@ -6,7 +6,6 @@ const imageConts = document.querySelectorAll(".main-image-cont");
 const bigTitles = document.querySelectorAll(".lp-big-title");
 const circlePath = document.querySelector(".progress-ring__circle");
 const clientLogos = document.querySelectorAll(".lp-client-logos-wrapper figure");
-const bigNumbers = document.querySelectorAll(".big-number");
 const buttons = document.querySelectorAll(".lp-button");
 
 /*
@@ -93,6 +92,8 @@ imageConts.forEach(image => {
 /**
  * Circle path animation
  */
+
+const tl = gsap.timeline();
 gsap.to(circlePath, {
     scrollTrigger: {
         trigger: circlePath,
@@ -105,6 +106,7 @@ gsap.to(circlePath, {
     duration: 2,
     ease: Back.easeOut
 })
+
 
 /**
  * Client logos timelines
@@ -126,23 +128,6 @@ gsap
             }
         }
     })
-
-/**
- * big numbers timeline
- */
-bigNumbers.forEach(number => {
-    gsap.to(number, {
-        scrollTrigger: {
-            trigger: number,
-            start: "-100px center"
-        },
-        scale: 1,
-        opacity: .3,
-        duration: .8,
-        delay: .5,
-        ease: Back.easeOut
-    })
-})
 
 /**
  * Buttons animation
@@ -213,8 +198,6 @@ function getOptions() {
 getOptions()
 
 const checkboxChanged = (e) => {
-    console.log(e.target.checked);
-    console.log(e.target.value);
     let options = document.querySelectorAll(".interest-field > option");
     for (let option of options) {
         if (e.target.checked && (option.value === e.target.value)) {
@@ -225,9 +208,4 @@ const checkboxChanged = (e) => {
             break;
         }
     }
-}
-
-function getMultiselectVal(e) {
-    e.preventDefault();
-    const select = document.getElementById("00Nf200000DmdEg");
 }
