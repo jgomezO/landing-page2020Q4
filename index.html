@@ -9,18 +9,6 @@
 
     <!-- Font from adobe -->
     <link rel="stylesheet" href="https://use.typekit.net/fpc2bqx.css" type="text/css">
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script>
-        function timestamp() {
-            var response = document.getElementById("g-recaptcha-response");
-            if (response == null || response.value.trim() == "") {
-              var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
-              elems["ts"] = JSON.stringify(new Date().getTime());
-              document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
-            }
-          }
-       setInterval(timestamp, 500)
-    </script>
 </head>
 <body>
     <header>
@@ -348,7 +336,6 @@
                             </select><br>
                         </div>
                         <div width="200px" class="g-recaptcha" data-sitekey="6LfO-i4UAAAAAIuI1lQ2-3_avU4l0fIIkZQCeLc8" data-callback="recaptcha_callback" data-expired-callback="recaptcha_expires" data-theme="dark"></div><br>
-                          <!--<div class="g-recaptcha" data-sitekey="6LcDAi8UAAAAAKBPzK2RUyzmM_2xzxxz3ZG2uKcH" data-callback="recaptcha_callback" data-expired-callback="recaptcha_expires" data-theme="dark"></div>-->
                         <div class="fields-required-message" style="color:white;">Validate reCaptcha</div>
                         <div>
                             <input id="submitButton" class="submit-button" type="submit" name="submit" value="Submit" disabled>
