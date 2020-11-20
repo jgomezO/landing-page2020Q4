@@ -1,5 +1,7 @@
+console.log('1 >>> ');
 let timeline = new TimelineMax();
 let timeline2 = new TimelineMax()
+console.log('2 >>> ');
 const paragraphElems = document.querySelectorAll(".paragraph");
 const featureTitles = document.querySelectorAll(".lp-feature-title");
 const imageConts = document.querySelectorAll(".main-image-cont");
@@ -8,7 +10,7 @@ const circlePath = document.querySelector(".progress-ring__circle");
 const clientLogos = document.querySelectorAll(".lp-client-logos-wrapper figure");
 const bigNumbers = document.querySelectorAll(".big-number");
 const buttons = document.querySelectorAll(".lp-button");
-
+console.log("hi there")
 /*
 * Animate the main title and main paragraphs
 */
