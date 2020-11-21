@@ -1,5 +1,8 @@
+
+/**
+ * Variables
+ */
 let timeline = new TimelineMax();
-let timeline2 = new TimelineMax()
 const paragraphElems = document.querySelectorAll(".paragraph");
 const featureTitles = document.querySelectorAll(".lp-feature-title");
 const imageConts = document.querySelectorAll(".main-image-cont");
@@ -7,6 +10,19 @@ const bigTitles = document.querySelectorAll(".lp-big-title");
 const circlePath = document.querySelector(".progress-ring__circle");
 const clientLogos = document.querySelectorAll(".lp-client-logos-wrapper figure");
 const buttons = document.querySelectorAll(".lp-button");
+const mainBackground = document.querySelector(".main-background")
+
+/**
+ * Call the method to create the checkboxes
+ */
+getOptions()
+
+const invertElems = document.querySelectorAll("p:not(.not-invert), h2:not(.not-invert), label, .container");
+
+/**
+ * register the ScrollTrigger plugin from gsap
+ */
+gsap.registerPlugin(ScrollTrigger);
 
 /*
 * Animate the main title and main paragraphs
@@ -20,6 +36,22 @@ timeline.staggerFrom(".lp-text", 1.5, {
     ease: Power4.easeOut
 }, 0.15);
 
+
+gsap.to(".lp-logo", {
+    opacity: 1,
+    duration: 2,
+    delay: .8,
+    ease: Power4.easeOut
+})
+
+gsap.to(".lp-getdemo-button", {
+    opacity: 1,
+    duration: 2,
+    delay: 1,
+    ease: Power4.easeOut
+})
+
+
 /*
 *  Main titles animation
 */
@@ -28,7 +60,7 @@ bigTitles.forEach(bigTitle => {
     gsap.to(bigTitle, {
         scrollTrigger: {
             trigger: bigTitle,
-            start: "-100px center"
+            start: "-100px center",
         },
         y: 0,
         opacity: 1,
@@ -45,7 +77,7 @@ paragraphElems.forEach(paragraph => {
     gsap.to(paragraph, {
         scrollTrigger: {
             trigger: paragraph,
-            start: "-100px center"
+            start: "-100px center",
         },
         y: 0,
         opacity: 1,
@@ -63,7 +95,6 @@ featureTitles.forEach(title => {
         scrollTrigger: {
             trigger: title,
             start: "-90px center",
-            // markers: true
         },
         y: 0,
         opacity: 1,
@@ -79,7 +110,7 @@ imageConts.forEach(image => {
     gsap.to(image, {
         scrollTrigger: {
             trigger: image,
-            start: "-100px center"
+            start: "-100px center",
         },
         opacity: 1,
         scale: 1,
@@ -97,14 +128,26 @@ const tl = gsap.timeline();
 gsap.to(circlePath, {
     scrollTrigger: {
         trigger: circlePath,
-        start: "-100px center"
-    },
-    css: {
-        "stroke-dashoffset": 240,
-        "stroke-dasharray": "800 200"
-    },
-    duration: 2,
-    ease: Back.easeOut
+        start: "-100px center",
+        onEnter: () => {
+            tl.to(circlePath, {
+                css: {
+                    "stroke-dashoffset": 240,
+                    "stroke-dasharray": "800 200"
+                },
+                duration: 2.5,
+                ease: Back.easeOut
+            }).to(circlePath, {
+                css: {
+                    "stroke-dashoffset": 800,
+                    "stroke-dasharray": "0 800",
+                    "stroke-width": 0
+                },
+                duration: 2,
+                ease: Back.easeOut
+            })
+        }
+    }
 })
 
 
@@ -123,10 +166,11 @@ gsap
                     duration: .8,
                     ease: Power4.easeOut,
                     stagger: .15,
-                    delay: .8
+                    delay: .8,
+                    onComplete: () => ScrollTrigger.refresh()
                 })
             }
-        }
+        },
     })
 
 /**
@@ -174,10 +218,75 @@ gsap.to(".lp-form-wrapper", {
     ease: Power4.easeOut
 })
 
+/**
+ * Dark section transition for all background
+ */
+
+gsap.to(".lp-dark-section", {
+    scrollTrigger: {
+        trigger: ".lp-dark-section",
+        start: "30% bottom",
+        end: "bottom 130px",
+        scrub: true,
+        onEnter: () => backToBlack(),
+        onEnterBack: () => backToBlack(),
+        onLeaveBack: () => backToWhite(),
+        onLeave: () => backToWhite()
+    }
+})
+
+/**
+ * Method to invert colors on background transition
+ * @param {boolean} isInvert Determines if method should invert colors
+ */
+const invertRevert = (isInvert) => {
+    for (let elem of invertElems) {
+        gsap.to(elem, {
+            css: {
+                "filter": isInvert ? "invert(1)" : "initial"
+            },
+            duration: .5,
+        })
+    }
+}
+
+/**
+ * Method to turn the background into black
+ */
+const backToBlack = () => {
+    gsap.to(mainBackground, {
+        css: {
+            "background-color": "#2B2F38"
+        },
+        duration: .5,
+    })
+
+    invertRevert(true)
+}
+
+/**
+ * Method to turn the background into white
+ */
+const backToWhite = () => {
+    gsap.to(mainBackground, {
+        css: {
+            "background-color": "#fff"
+        },
+        duration: .5,
+    })
+    invertRevert(false)
+}
+
+/**
+ * Method to scroll to form
+ */
 function scrollToForm() {
     gsap.to(window, { duration: 1.5, ease: Power4.easeOut, scrollTo: { y: "#form", offsetY: 50 } });
 }
 
+/**
+ * Gets the options from the multiselect and creates the checkboxes
+ */
 function getOptions() {
     const options = document.querySelectorAll(".interest-field > option");
     const interestIn = document.getElementById("interestIn");
@@ -195,8 +304,12 @@ function getOptions() {
     checkboxesHTMLList = `<ul class="lp-interest-cont">${checkboxesItems}</ul>`
     interestIn.innerHTML = checkboxesHTMLList
 }
-getOptions()
 
+/**
+ * Method to handle the change of the checkboxes
+ * - It selectes the values of the multiselect picklist
+ * @param {object} e The change event
+ */
 const checkboxChanged = (e) => {
     let options = document.querySelectorAll(".interest-field > option");
     for (let option of options) {

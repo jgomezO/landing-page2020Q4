@@ -64,6 +64,7 @@ $breakpoint-phone-small: 320px;
     -ms-user-select: none;
     user-select: none;
     line-height: 25px;
+    color: #000;
   }
   
   /* Hide the browser's default checkbox */
@@ -159,9 +160,11 @@ header{
         .lp-logo{
             height: 40px;
             margin-left: 50px;
+            opacity: 0;
         }
         .lp-getdemo-button{
             @include button-styles();
+            opacity: 0;
         }
     }
     .lp-main-banner{
@@ -453,12 +456,12 @@ header{
 
     // Dark section
     .lp-dark-section{
-        @include gradient-bg();
+        // @include gradient-bg();
         min-height: 800px;
         margin: 0 -3rem;
         padding: 3rem 0 0 ;
         position: relative;
-        overflow: hidden;
+        // overflow: hidden;
         .lp-first-paragraph{
             color: #fff;
             z-index: 1;
@@ -485,12 +488,30 @@ header{
             .lp-success-message{
                 opacity: 0;
             }
-            img{
-                border-top-left-radius: 15px;
-                border-top-right-radius: 15px;
+            .lp-contact-img-wrapper{
                 max-width: 280px;
                 width: 95%;
-                margin: 50px 0 -5px;
+                margin: 50px auto -5px;
+                img{
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
+                    width: 100%;
+                    margin-bottom: -5px;
+                    position: relative;
+                }
+                &:after{
+                    content: "";
+                    position: absolute;
+                    bottom: -3px;
+                    border-radius: 2px;
+                    left: -10px;
+                    right: -10px;
+                    height: 2px;
+                    max-width: 340px;
+                    width: 100%;
+                    margin: 0 auto;
+                    background-color: white;
+                }
             }
         }
         .progress-ring{

@@ -21,6 +21,7 @@
   -ms-user-select: none;
   user-select: none;
   line-height: 25px;
+  color: #000;
 }
 
 /* Hide the browser's default checkbox */
@@ -127,6 +128,7 @@ header nav {
 header nav .lp-logo {
   height: 40px;
   margin-left: 50px;
+  opacity: 0;
 }
 
 header nav .lp-getdemo-button {
@@ -139,6 +141,7 @@ header nav .lp-getdemo-button {
   font-weight: 700;
   line-height: 40px;
   border: 0;
+  opacity: 0;
 }
 
 header .lp-main-banner {
@@ -525,14 +528,10 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
 }
 
 .lp-main-wrapper .lp-dark-section {
-  background: -webkit-gradient(linear, left top, left bottom, from(#2B2F38), to(transparent)), -webkit-gradient(linear, right bottom, left top, from(#2B2F38), to(transparent)), -webkit-gradient(linear, left bottom, right top, from(#000));
-  background: linear-gradient(#2B2F38, transparent), linear-gradient(to top left, #2B2F38, transparent), linear-gradient(to top right, #000);
-  background-blend-mode: screen;
   min-height: 800px;
   margin: 0 -3rem;
   padding: 3rem 0 0;
   position: relative;
-  overflow: hidden;
 }
 
 .lp-main-wrapper .lp-dark-section .lp-first-paragraph {
@@ -569,12 +568,32 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   opacity: 0;
 }
 
-.lp-main-wrapper .lp-dark-section .lp-more-than-platform img {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+.lp-main-wrapper .lp-dark-section .lp-more-than-platform .lp-contact-img-wrapper {
   max-width: 280px;
   width: 95%;
-  margin: 50px 0 -5px;
+  margin: 50px auto -5px;
+}
+
+.lp-main-wrapper .lp-dark-section .lp-more-than-platform .lp-contact-img-wrapper img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width: 100%;
+  margin-bottom: -5px;
+  position: relative;
+}
+
+.lp-main-wrapper .lp-dark-section .lp-more-than-platform .lp-contact-img-wrapper:after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  border-radius: 2px;
+  left: -10px;
+  right: -10px;
+  height: 2px;
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
 }
 
 .lp-main-wrapper .lp-dark-section .progress-ring {
