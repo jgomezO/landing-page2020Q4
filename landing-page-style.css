@@ -84,6 +84,20 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
+.cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: none;
+  z-index: 9999;
 }
 
 button {
@@ -427,7 +441,7 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   left: 30%;
 }
 
-.lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .paragraphs-cont .paragraph {
+.lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .paragraphs-cont {
   opacity: 0;
   -webkit-transform: translateY(100px);
           transform: translateY(100px);

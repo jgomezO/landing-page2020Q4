@@ -3,14 +3,14 @@
  * Variables
  */
 let timeline = new TimelineMax();
-const paragraphElems = document.querySelectorAll(".paragraph");
+const paragraphElems = document.querySelectorAll(".paragraphs-cont");
 const featureTitles = document.querySelectorAll(".lp-feature-title");
 const imageConts = document.querySelectorAll(".main-image-cont");
 const bigTitles = document.querySelectorAll(".lp-big-title");
 const circlePath = document.querySelector(".progress-ring__circle");
 const clientLogos = document.querySelectorAll(".lp-client-logos-wrapper figure");
 const buttons = document.querySelectorAll(".lp-button");
-const mainBackground = document.querySelector(".main-background")
+const mainBackground = document.querySelector(".main-background");
 
 /**
  * Call the method to create the checkboxes
@@ -80,6 +80,7 @@ paragraphElems.forEach(paragraph => {
             start: "-100px center",
         },
         y: 0,
+        stagger: .5,
         opacity: 1,
         duration: 1,
         ease: Power3.easeOut
