@@ -261,6 +261,13 @@ const backToBlack = () => {
         duration: .5,
     })
 
+    gsap.to(".progress-ring__circle.bigger", {
+        css: {
+            "stroke": "#000"
+        },
+        duration: .5
+    })
+
     invertRevert(true)
 }
 
@@ -273,6 +280,12 @@ const backToWhite = () => {
             "background-color": "#fff"
         },
         duration: .5,
+    })
+    gsap.to(".progress-ring__circle.bigger", {
+        css: {
+            "stroke": "#dddbda"
+        },
+        duration: .5
     })
     invertRevert(false)
 }
