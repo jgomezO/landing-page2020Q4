@@ -87,17 +87,13 @@ body {
   overscroll-behavior-y: none;
 }
 
-.cursor {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #000;
-  border-radius: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  pointer-events: none;
-  display: none;
-  z-index: 9999;
+body .page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 button {

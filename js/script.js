@@ -12,6 +12,7 @@ const clientLogos = document.querySelectorAll(".lp-client-logos-wrapper figure")
 const buttons = document.querySelectorAll(".lp-button");
 const mainBackground = document.querySelector(".main-background");
 
+
 /**
  * Call the method to create the checkboxes
  */
