@@ -905,8 +905,9 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
     margin-top: 0;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.phone {
-    max-width: 90px;
-    margin-top: -130px;
+    max-width: 150px;
+    margin-top: -157px;
+    left: 30px;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure:nth-child(2) {
     max-width: 100%;
