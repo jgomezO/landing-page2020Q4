@@ -9,9 +9,32 @@ const imageConts = document.querySelectorAll(".main-image-cont");
 const bigTitles = document.querySelectorAll(".lp-big-title");
 const circlePath = document.querySelector(".progress-ring__circle");
 const clientLogos = document.querySelectorAll(".lp-client-logos-wrapper figure");
-const buttons = document.querySelectorAll(".lp-button");
 const mainBackground = document.querySelector(".main-background");
 
+const imgWrappers = document.querySelectorAll(".lp-img-cont");
+
+const cursor = document.querySelector(".cursor");
+
+const mouseMove = (e) => {
+    cursor.style.top = e.pageY + "px";
+    cursor.style.left = e.pageX + "px";
+}
+
+const showHideCursor = (display) => {
+    cursor.style.display = display;
+}
+
+imgWrappers.forEach(wrapper => {
+    wrapper.addEventListener("mouseenter", () => {
+        showHideCursor("block")
+        window.addEventListener("mousemove", (e) => mouseMove(e))
+    })
+    wrapper.addEventListener("mouseleave", () => {
+        showHideCursor("none")
+        window.removeEventListener("mousemove", (e) => mouseMove(e))
+        wrapper.removeEventListener("mouseenter", showHideCursor("none"))
+    })
+})
 
 /**
  * Call the method to create the checkboxes
@@ -78,32 +101,25 @@ paragraphElems.forEach(paragraph => {
     gsap.to(paragraph, {
         scrollTrigger: {
             trigger: paragraph,
-            start: "-100px center",
+            start: "-70px center",
+            onEnter: () => {
+                const elems = paragraph.querySelectorAll(".anim")
+                gsap.to(elems, {
+                    y: 0,
+                    stagger: {
+                        each: .1,
+                        ease: Power3.easeOut
+                    },
+                    scale: 1,
+                    opacity: 1,
+                    duration: .4,
+                })
+            }
         },
-        y: 0,
-        stagger: .5,
-        opacity: 1,
-        duration: 1,
-        ease: Power3.easeOut
+        onComplete: () => ScrollTrigger.refresh()
     })
 })
 
-
-/**
- * Feature titles animation
- */
-featureTitles.forEach(title => {
-    gsap.to(title, {
-        scrollTrigger: {
-            trigger: title,
-            start: "-90px center",
-        },
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: Power3.easeOut
-    })
-})
 
 /**
  * Feature images animation
@@ -176,22 +192,6 @@ gsap
     })
 
 /**
- * Buttons animation
- */
-buttons.forEach(button => {
-    gsap.to(button, {
-        scrollTrigger: {
-            trigger: button,
-            start: "-70px center"
-        },
-        scale: 1,
-        opacity: 1,
-        duration: .4,
-        ease: Power4.easeOut
-    })
-})
-
-/**
  * Success paragraph animation
  */
 
@@ -220,22 +220,6 @@ gsap.to(".lp-form-wrapper", {
     ease: Power4.easeOut
 })
 
-/**
- * Dark section transition for all background
- */
-
-gsap.to(".lp-dark-section", {
-    scrollTrigger: {
-        trigger: ".lp-dark-section",
-        start: "30% bottom",
-        end: "bottom 130px",
-        scrub: true,
-        onEnter: () => backToBlack(),
-        onEnterBack: () => backToBlack(),
-        onLeaveBack: () => backToWhite(),
-        onLeave: () => backToWhite()
-    }
-})
 
 /**
  * Method to invert colors on background transition
@@ -291,6 +275,43 @@ const backToWhite = () => {
     })
     invertRevert(false)
 }
+/**
+ * Dark section transition for all background
+ */
+
+gsap.to(".lp-dark-section", {
+    scrollTrigger: {
+        trigger: ".lp-dark-section",
+        start: "30% bottom",
+        end: "bottom 130px",
+        scrub: true,
+        onEnter: () => backToBlack(),
+        onEnterBack: () => backToBlack(),
+        onLeaveBack: () => backToWhite(),
+        onLeave: () => backToWhite()
+    }
+})
+
+gsap.to(".lp-more-than-platform", {
+    scrollTrigger: {
+        trigger: ".lp-more-than-platform",
+        start: "30% center",
+        onEnter: () => {
+            const father = document.querySelector(".lp-more-than-platform");
+            const elems = father.querySelectorAll(".anim");
+            gsap.to(elems, {
+                y: 0,
+                stagger: {
+                    each: .1,
+                    ease: Power3.easeOut
+                },
+                scale: 1,
+                opacity: 1,
+                duration: .4,
+            })
+        }
+    }
+})
 
 /**
  * Method to scroll to form

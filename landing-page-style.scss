@@ -50,9 +50,28 @@ $breakpoint-tablet: 768px;
 $breakpoint-phone: 450px;
 $breakpoint-phone-small: 320px;
 
-
 /*[[ checkbox Styles ]]*/
 
+.anim{
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cursor{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+    display: none;
+}
+
+.lp-img-cont:hover{
+    cursor: none;
+}
 /* The container */
 .container {
     display: block;
@@ -389,8 +408,8 @@ header{
                 left: 30%;
             }
             .paragraphs-cont{
-                opacity: 0;
-                transform: translateY(100px);
+                // opacity: 0;
+                // transform: translateY(100px);
             }
             .lp-button{
                 margin-top: 20px;
@@ -401,8 +420,8 @@ header{
                 margin-top: 20px;
                 color: $title-color;
                 line-height: 1.2;
-                transform: translateY(100px);
-                opacity: 0;
+                // transform: translateY(100px);
+                // opacity: 0;
                 &.top{
                     margin-top: 0;
                     margin-bottom: 20px;
@@ -542,7 +561,6 @@ header{
     font-weight: 700;
     padding: 0 2rem;
     border-radius: 44px;
-    opacity: 0;
     transform: scale(.6);
     &.filled{
         line-height: 44px;
@@ -555,7 +573,7 @@ header{
         color: $veevart-blue;
         border: 2px solid $veevart-blue;
         background: transparent;
-        transition: all ease-in-out .4s;
+        transition: background ease-in-out .4s;
         &:hover{
             color: white;
             background: $veevart-blue;

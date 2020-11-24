@@ -10,6 +10,29 @@
 /* Variables */
 /*[[ breakpoints devices ]]*/
 /*[[ checkbox Styles ]]*/
+.anim {
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+}
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 9999;
+  pointer-events: none;
+  display: none;
+}
+
+.lp-img-cont:hover {
+  cursor: none;
+}
+
 /* The container */
 .container {
   display: block;
@@ -436,12 +459,6 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   left: 30%;
 }
 
-.lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .paragraphs-cont {
-  opacity: 0;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
-}
-
 .lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .lp-button {
   margin-top: 20px;
 }
@@ -452,9 +469,6 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   margin-top: 20px;
   color: #838f9c;
   line-height: 1.2;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
-  opacity: 0;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .lp-feature-title.top {
@@ -624,7 +638,6 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   font-weight: 700;
   padding: 0 2rem;
   border-radius: 44px;
-  opacity: 0;
   -webkit-transform: scale(0.6);
           transform: scale(0.6);
 }
@@ -641,8 +654,8 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   color: #0066ff;
   border: 2px solid #0066ff;
   background: transparent;
-  -webkit-transition: all ease-in-out .4s;
-  transition: all ease-in-out .4s;
+  -webkit-transition: background ease-in-out .4s;
+  transition: background ease-in-out .4s;
 }
 
 .lp-button.outlined:hover {
