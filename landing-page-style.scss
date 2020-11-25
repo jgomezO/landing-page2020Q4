@@ -819,8 +819,6 @@ header{
             .lp-getdemo-button{
                 margin-right: 10px !important;
                 padding: 10px 10px;
-                background-color: transparent;
-                color: $veevart-blue;
             }
         }
     }
@@ -835,6 +833,10 @@ header{
             }
             .lp-getdemo-button{
                 margin-right: 20px;
+                margin-left: 20px !important;
+                padding: 10px 20px;
+                line-height: 1.2;
+                height: auto;
             }
         }
         .lp-main-banner{

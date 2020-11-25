@@ -948,8 +948,6 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   header nav .lp-getdemo-button {
     margin-right: 10px !important;
     padding: 10px 10px;
-    background-color: transparent;
-    color: #0066ff;
   }
 }
 
@@ -961,6 +959,10 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   }
   header nav .lp-getdemo-button {
     margin-right: 20px;
+    margin-left: 20px !important;
+    padding: 10px 20px;
+    line-height: 1.2;
+    height: auto;
   }
   header .lp-main-banner .lp-main-title-wrapper .lp-main-title {
     font-size: 10.4vw;
