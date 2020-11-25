@@ -343,43 +343,61 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   top: 0;
 }
 
-.lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure:first-child {
-  position: static;
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure:first-child:not(.phone) {
+  position: relative;
 }
 
-.lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.tablet {
-  max-width: 450px;
-  top: 35% !important;
-  left: 38% !important;
-}
-
-.lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure:nth-child(2) {
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure:nth-child(2):not(.tablet-2) {
   top: 40%;
   left: 35%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.phone {
   max-width: 150px;
+  position: relative;
   top: 45%;
-  left: 20%;
+  left: 30%;
+  z-index: 3;
+  -webkit-transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9) translate3d(-50%, 50%, 100px);
+          transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9) translate3d(-50%, 50%, 100px);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images.right figure {
-  -webkit-transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9);
-          transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9);
   -webkit-box-shadow: 23px 20px 39px 14px rgba(0, 0, 0, 0.15);
   box-shadow: 23px 20px 39px 14px rgba(0, 0, 0, 0.15);
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images.right figure:nth-child(2) {
   max-width: 400px;
+  top: 50%;
+  z-index: 2;
+  -webkit-transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9) translate3d(15%, -50%, 70px);
+          transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9) translate3d(15%, -50%, 70px);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images.right figure:not(.phone):not(.tablet-2):not(.desktop) {
+  -webkit-transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9) translate3d(0, 0, 0);
+          transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9) translate3d(0, 0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images.right figure.desktop {
+  z-index: 1;
+  top: -25% !important;
+  -webkit-transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9) translate3d(0, 0, -70px);
+          transform: rotateX(29deg) rotateY(-10deg) skew(-24deg, 24deg) scale(0.9) translate3d(0, 0, -70px);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure {
   width: 100%;
   position: relative;
-  -webkit-transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9);
-          transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9);
   border-radius: 10px;
   -webkit-box-shadow: -23px 20px 39px 14px rgba(0, 0, 0, 0.15);
   box-shadow: -23px 20px 39px 14px rgba(0, 0, 0, 0.15);
@@ -388,6 +406,31 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   transition: all ease-in-out .8s;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+}
+
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure:not(.phone):not(.ticketing):not(.tablet):not(.desktop):not(.tablet-2):not(.dashboard) {
+  -webkit-transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(0, 0, 0);
+          transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(0, 0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure.tablet {
+  max-width: 450px;
+  top: 40% !important;
+  left: 35% !important;
+  z-index: 2;
+  -webkit-transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(0, 0, 100px);
+          transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(0, 0, 100px);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure.ticketing {
+  -webkit-transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(-30px, 0, 0);
+          transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(-30px, 0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure.padding {
@@ -402,39 +445,61 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
      object-fit: contain;
 }
 
-.lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover figure {
-  -webkit-transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(1);
-          transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(1);
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover figure:not(.phone) {
+  -webkit-transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(1) translate3d(0, 0, 0);
+          transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(1) translate3d(0, 0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images figure:nth-child(2) {
-  -webkit-transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(1.2);
-          transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(1.2);
+  -webkit-transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(1.2) translate3d(0, 0, 0);
+          transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(1.2) translate3d(0, 0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images figure.tablet {
-  -webkit-transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8);
-          transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8);
+  -webkit-transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8) translate3d(0, 0, 0);
+          transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8) translate3d(0, 0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
   left: 40%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images figure.ticketing {
-  -webkit-transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8);
-          transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8);
+  -webkit-transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8) translate3d(0, 0, 0);
+          transform: rotateX(5deg) rotateY(5deg) skew(12deg, -11deg) scale(0.8) translate3d(0, 0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
-.lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images.right figure {
-  -webkit-transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1);
-          transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1);
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images.right figure:not(.phone):not(.tablet-2):not(.desktop) {
+  -webkit-transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1) translate3d(0, 0, 0);
+          transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1) translate3d(0, 0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images.right figure.phone {
-  -webkit-transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1.2);
-          transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1.2);
+  -webkit-transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1.2) translate3d(-50%, 50%, 100px);
+          transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1.2) translate3d(-50%, 50%, 100px);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images.right figure.desktop {
+  -webkit-transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1) translate3d(0, 0, -70px);
+          transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1) translate3d(0, 0, -70px);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images.right figure:nth-child(2) {
-  left: 40%;
+  -webkit-transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1) translate3d(0, -50%, 70px);
+          transform: rotateX(5deg) rotateY(-5deg) skew(-12deg, 11deg) scale(1) translate3d(0, -50%, 70px);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .info-div {
@@ -801,9 +866,11 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+    padding: 2rem 0 6rem;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont {
     padding: 0;
+    pointer-events: none;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure.padding {
     padding: 1rem;
@@ -819,25 +886,28 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
     margin-top: 0;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.phone {
-    left: 0;
     max-width: 180px;
-    margin-top: -190px;
+    left: 60%;
+  }
+  .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.desktop {
+    margin-top: -87%;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure:nth-child(2) {
     max-width: 100%;
-    margin-top: -250px;
-    left: 0;
+    margin-top: -200px;
+    left: 10%;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.tablet {
-    margin-top: -300px !important;
+    margin-top: -30% !important;
     left: 0 !important;
     margin-bottom: 5.5rem;
   }
-  .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images figure.tablet {
-    left: 25%;
-  }
-  .lp-main-wrapper .lp-feature-wrapper .lp-img-cont:hover .multiple-images.right figure:nth-child(2) {
-    left: 25%;
+  .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.ticketing {
+    margin-top: -17%;
+    -webkit-transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(0, 0, -60px);
+            transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(0, 0, -60px);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph {
     width: 100%;
@@ -905,6 +975,19 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   .lp-main-wrapper .lp-sections > .lp-feature-wrapper:first-child .main-image-cont {
     margin-bottom: 2rem;
   }
+  .lp-main-wrapper .lp-feature-wrapper {
+    margin: 2rem 0 0;
+  }
+  .lp-main-wrapper .lp-feature-wrapper .main-image-cont {
+    padding: 2rem 0 2rem;
+  }
+  .lp-main-wrapper .lp-feature-wrapper:nth-child(2) {
+    margin: 4rem 0 0;
+  }
+  .lp-main-wrapper .lp-feature-wrapper:nth-child(2) .main-image-cont {
+    min-height: 430px;
+    padding: 3rem 0 6rem;
+  }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont {
     padding: 0;
   }
@@ -917,17 +1000,21 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure:first-child {
     margin-top: 0;
   }
+  .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.desktop {
+    margin-top: -140%;
+  }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.phone {
     max-width: 150px;
-    margin-top: -157px;
-    left: 30px;
+  }
+  .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.tablet-2 {
+    margin-top: -60%;
+    left: -10%;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure:nth-child(2) {
     max-width: 100%;
-    margin-top: -60px;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-img-cont .multiple-images figure.tablet {
-    margin-top: -150px !important;
+    margin-top: -10%;
     margin-bottom: 0;
   }
   .lp-main-wrapper .lp-feature-wrapper .lp-first-paragraph .big-number {

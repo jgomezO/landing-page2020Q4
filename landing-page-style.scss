@@ -21,8 +21,9 @@ $input-bg: #e6e6e6;
     box-shadow: $shadowX 20px 39px 14px rgba(0,0,0,0.15);
 }
 
-@mixin perspective($rotateX, $rotateY, $skewX, $skewY, $scale) {
-    transform: rotateX($rotateX) rotateY($rotateY) skew($skewX, $skewY) scale($scale);
+@mixin perspective($rotateX, $rotateY, $skewX, $skewY, $scale, $translateX: 0, $translateY: 0, $translateZ: 0,) {
+    transform: rotateX($rotateX) rotateY($rotateY) skew($skewX, $skewY) scale($scale) translate3d($translateX,$translateY,$translateZ);
+    transform-origin: 50% 50%;
 }
 
 @mixin gradient-bg() {
@@ -311,30 +312,38 @@ header{
                 figure{
                     position: absolute;
                     top: 0;
-                    &:first-child{
-                        position: static;
+                    &:first-child:not(.phone){
+                        position: relative;
                     }
-                    &.tablet{
-                        max-width: 450px;
-                        top: 35% !important;
-                        left: 38% !important;
-                    }
-                    &:nth-child(2){
+                    &:nth-child(2):not(.tablet-2){
                         top: 40%;
                         left: 35%;
                     }
                     &.phone{
                         max-width: 150px;
+                        position: relative;
                         top: 45%;
-                        left: 20%;
+                        left: 30%;
+                        z-index: 3;
+                        @include perspective(29deg, -10deg, -24deg, 24deg, .9, -50%, 50%, 100px);
                     }
                 }
                 &.right{
                     figure{
-                        @include perspective(29deg, -10deg, -24deg, 24deg, .9);
                         @include image-shadow(23px);
                         &:nth-child(2){
                             max-width: 400px;
+                            top: 50%;
+                            z-index: 2;
+                            @include perspective(29deg, -10deg, -24deg, 24deg, .9, 15%, -50%, 70px);
+                        }
+                        &:not(.phone):not(.tablet-2):not(.desktop){
+                            @include perspective(29deg, -10deg, -24deg, 24deg, .9);
+                        }
+                        &.desktop{
+                            z-index: 1;
+                            top: -25% !important;
+                            @include perspective(29deg, -10deg, -24deg, 24deg, .9, 0, 0, -70px);
                         }
                     }
                 }
@@ -342,12 +351,24 @@ header{
             figure{
                 width: 100%;
                 position: relative;
-                @include perspective(29deg, 10deg, 24deg, -24deg, .9);
                 border-radius: 10px;
                 @include image-shadow(-23px);
                 overflow: hidden;
                 transition: all ease-in-out .8s;
                 transform-style: preserve-3d;
+                &:not(.phone):not(.ticketing):not(.tablet):not(.desktop):not(.tablet-2):not(.dashboard){
+                    @include perspective(29deg, 10deg, 24deg, -24deg, .9, 0);
+                }
+                &.tablet{
+                    max-width: 450px;
+                    top: 40% !important;
+                    left: 35% !important;
+                    z-index: 2;
+                    @include perspective(29deg, 10deg, 24deg, -24deg, .9, 0,0,100px);
+                }
+                &.ticketing{
+                    @include perspective(29deg, 10deg, 24deg, -24deg, .9, -30px, 0, 0);
+                }
                 &.padding{
                     padding: 2rem;
                 }
@@ -360,7 +381,9 @@ header{
             }
             &:hover {
                 figure{
-                    @include perspective(5deg, 5deg, 12deg, -11deg, 1);
+                    &:not(.phone){
+                        @include perspective(5deg, 5deg, 12deg, -11deg, 1);
+                    }
                 }
                 .multiple-images{
                     figure{
@@ -377,12 +400,17 @@ header{
                     }
                     &.right{
                         figure{
-                            @include perspective(5deg, -5deg, -12deg, 11deg, 1);
+                            &:not(.phone):not(.tablet-2):not(.desktop){
+                                @include perspective(5deg, -5deg, -12deg, 11deg, 1);
+                            }
                             &.phone{
-                                @include perspective(5deg, -5deg, -12deg, 11deg, 1.2);
+                                @include perspective(5deg, -5deg, -12deg, 11deg, 1.2, -50%, 50%, 100px);
+                            }
+                            &.desktop{
+                                @include perspective(5deg, -5deg, -12deg, 11deg, 1, 0, 0, -70px);
                             }
                             &:nth-child(2){
-                                left: 40%;
+                                @include perspective(5deg, -5deg, -12deg, 11deg, 1, 0, -50%, 70px);
                             }
                         }
                     }
@@ -407,10 +435,6 @@ header{
                 top: -5%;
                 left: 30%;
             }
-            .paragraphs-cont{
-                // opacity: 0;
-                // transform: translateY(100px);
-            }
             .lp-button{
                 margin-top: 20px;
             }
@@ -420,8 +444,6 @@ header{
                 margin-top: 20px;
                 color: $title-color;
                 line-height: 1.2;
-                // transform: translateY(100px);
-                // opacity: 0;
                 &.top{
                     margin-top: 0;
                     margin-bottom: 20px;
@@ -701,9 +723,11 @@ header{
                 width: 90%;
                 margin: 0 auto;
                 order: 1;
+                padding: 2rem 0 6rem;
             }
             .lp-img-cont{
                 padding: 0;
+                pointer-events: none;
                 figure{
                     &.padding{
                         padding: 1rem;
@@ -718,35 +742,25 @@ header{
                             margin-top: 0;
                         }
                         &.phone{
-                            left: 0;
                             max-width: 180px;
-                            margin-top: -190px;
+                            left: 60%;
+                        }
+                        &.desktop{
+                            margin-top: -87%;
                         }
                         &:nth-child(2){
                             max-width: 100%;
-                            margin-top: -250px;
-                            left:0;
+                            margin-top: -200px;
+                            left: 10%;
                         }
                         &.tablet{
-                            margin-top: -300px !important;
+                            margin-top: -30% !important;
                             left: 0 !important; 
                             margin-bottom: 5.5rem;
                         }
-                    }
-                }
-                &:hover {
-                    .multiple-images{
-                        figure{
-                            &.tablet{
-                                left: 25%;
-                            }
-                        }
-                        &.right{
-                            figure{
-                                &:nth-child(2){
-                                    left: 25%;
-                                }
-                            }
+                        &.ticketing{
+                            margin-top: -17%;
+                            @include perspective(29deg, 10deg, 24deg, -24deg, .9, 0, 0,-60px);
                         }
                     }
                 }
@@ -847,6 +861,17 @@ header{
             }
         }
         .lp-feature-wrapper{
+            margin: 2rem 0 0;
+            .main-image-cont{
+                padding: 2rem 0 2rem;
+            }
+            &:nth-child(2){
+                margin: 4rem 0 0;
+                .main-image-cont{
+                    min-height: 430px;
+                    padding: 3rem 0 6rem;
+                }
+            }
             .lp-img-cont{
                 padding: 0;
                 figure{
@@ -860,17 +885,21 @@ header{
                         &:first-child{
                             margin-top: 0;
                         }
+                        &.desktop{
+                            margin-top: -140%;
+                        }
                         &.phone{
                             max-width: 150px;
-                            margin-top: -157px;
-                            left: 30px;
+                        }
+                        &.tablet-2{
+                            margin-top: -60%;
+                            left: -10%;
                         }
                         &:nth-child(2){
                             max-width: 100%;
-                            margin-top: -60px;
                         }
                         &.tablet{
-                            margin-top: -150px !important;
+                            margin-top: -10%;
                             margin-bottom: 0;
                         }
                     }
