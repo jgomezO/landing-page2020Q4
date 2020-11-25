@@ -826,10 +826,15 @@ header{
 @media screen and (max-width: $breakpoint-phone){
     header{
         nav{
+            a{
+                width: 40%;
+                display: block;
+                margin-left: 20px;
+            }
             .lp-logo{
                 height: auto;
-                width: 40%;
-                margin-left: 20px;
+                margin: 0;
+                width: 100%;
             }
             .lp-getdemo-button{
                 margin-right: 20px;

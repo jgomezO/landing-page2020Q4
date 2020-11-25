@@ -952,10 +952,15 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
 }
 
 @media screen and (max-width: 450px) {
+  header nav a {
+    width: 40%;
+    display: block;
+    margin-left: 20px;
+  }
   header nav .lp-logo {
     height: auto;
-    width: 40%;
-    margin-left: 20px;
+    margin: 0;
+    width: 100%;
   }
   header nav .lp-getdemo-button {
     margin-right: 20px;
