@@ -350,13 +350,13 @@ header{
             }
             figure{
                 width: 100%;
-                position: relative;
                 border-radius: 10px;
                 @include image-shadow(-23px);
                 overflow: hidden;
                 transition: all ease-in-out .8s;
                 transform-style: preserve-3d;
-                &:not(.phone):not(.ticketing):not(.tablet):not(.desktop):not(.tablet-2):not(.dashboard){
+                &.single{
+                    position: relative;
                     @include perspective(29deg, 10deg, 24deg, -24deg, .9, 0);
                 }
                 &.tablet{

@@ -397,7 +397,6 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
 
 .lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure {
   width: 100%;
-  position: relative;
   border-radius: 10px;
   -webkit-box-shadow: -23px 20px 39px 14px rgba(0, 0, 0, 0.15);
   box-shadow: -23px 20px 39px 14px rgba(0, 0, 0, 0.15);
@@ -408,7 +407,8 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
           transform-style: preserve-3d;
 }
 
-.lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure:not(.phone):not(.ticketing):not(.tablet):not(.desktop):not(.tablet-2):not(.dashboard) {
+.lp-main-wrapper .lp-feature-wrapper .lp-img-cont figure.single {
+  position: relative;
   -webkit-transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(0, 0, 0);
           transform: rotateX(29deg) rotateY(10deg) skew(24deg, -24deg) scale(0.9) translate3d(0, 0, 0);
   -webkit-transform-origin: 50% 50%;
