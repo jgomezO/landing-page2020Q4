@@ -358,3 +358,14 @@ const checkboxChanged = (e) => {
         }
     }
 }
+
+const submitButton = document.getElementById("submitButton");
+const message = document.querySelector(".fields-required-message");
+function recaptcha_callback() {
+    submitButton.removeAttribute('disabled');
+    message.style.display = "none"
+};
+function recaptcha_expires() {
+    submitButton.disabled = true;
+    message.style.display = "block";
+}
