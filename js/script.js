@@ -15,6 +15,8 @@ const imgWrappers = document.querySelectorAll(".lp-img-cont");
 
 const cursor = document.querySelector(".cursor");
 
+let multiSelectInputValue = [];
+
 const mouseMove = (e) => {
     cursor.style.top = e.pageY + "px";
     cursor.style.left = e.pageX + "px";
@@ -347,15 +349,29 @@ function getOptions() {
  * @param {object} e The change event
  */
 const checkboxChanged = (e) => {
-    let options = document.querySelectorAll(".interest-field > option");
+    const options = document.querySelectorAll(".interest-field > option");
+    const interestField = document.querySelector(".interest-field");
+    
     for (let option of options) {
         if (e.target.checked && (option.value === e.target.value)) {
             option.selected = true;
+            multiSelectInputValue.push(option.value);
             break;
         } else if (!e.target.checked && (option.value === e.target.value)) {
             option.selected = false;
+            if(multiSelectInputValue.length){
+                const index = multiSelectInputValue.indexOf(option.value)
+                if(index > -1){
+                    multiSelectInputValue.splice(index, 1)
+                }
+            }
             break;
         }
+    }
+    let valuesString = ""
+    if(multiSelectInputValue.length){
+        valuesString = multiSelectInputValue.join(";");
+        // interestField.value = valuesString
     }
 }
 

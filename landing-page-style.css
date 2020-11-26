@@ -772,6 +772,12 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   margin-right: auto !important;
   display: table;
   padding: 0 40px;
+  cursor: pointer;
+}
+
+#form .lp-form-wrapper form input[type="submit"]:disabled {
+  cursor: auto;
+  background-color: #727171;
 }
 
 #form .lp-form-wrapper .lp-interest-cont {
@@ -834,6 +840,19 @@ header .lp-main-banner .lp-descriptive-texts-wrapper p span.bold-text {
   height: 35px;
   padding: 0 20px;
   position: relative;
+}
+
+#form .lp-form-wrapper .lp-field-cont select.interest-field {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px -1px -1px -3px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  left: 50%;
+  top: 30px;
 }
 
 @media screen and (max-width: 768px) {
